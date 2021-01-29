@@ -129,7 +129,7 @@ def AnnGrain(df,df_class):
   y_true = df['y_Actual']
   y_pred_test = df['y_Predicted']
 
-  METRICS_test=sklearn.metrics.classification_report(y_true, y_pred)
+  METRICS_test=sklearn.metrics.classification_report(y_true, y_pred_test)
   
   x_seg=np.array(df_class)
   logits = model(x_seg, training=False)
@@ -155,7 +155,7 @@ def AnnGrain(df,df_class):
   y_true = df['y_Actual']
   y_pred_train = df['y_Predicted']
 
-  METRICS_train=sklearn.metrics.classification_report(y_true, y_pred)
+  METRICS_train=sklearn.metrics.classification_report(y_true, y_pred_train)
   
   x_seg=np.array(df_class)
   logits = model(x_seg, training=False)
