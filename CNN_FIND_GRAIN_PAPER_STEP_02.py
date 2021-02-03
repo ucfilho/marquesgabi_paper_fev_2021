@@ -119,7 +119,8 @@ def AnnGrain(df,df_class):
   model.add(tf.keras.layers.Conv2D(64, (3, 3), activation='relu'))
   model.add(tf.keras.layers.Flatten())
   model.add(tf.keras.layers.Dense(128, activation='relu'))
-  model.add(tf.keras.layers.Dense(10, activation='softmax'))       
+  model.add(tf.keras.layers.Dense(10, activation='softmax'))
+  model.add(tf.keras.layers.Dense(1, activation='sigmoid'))
   
  #model = tf.keras.Sequential([
  #    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(168,168, 3)),
