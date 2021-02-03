@@ -97,18 +97,27 @@ def AnnGrain(df,df_class):
   test_images=W_test
   test_labels=yw_test
 
-  model = tf.keras.Sequential([
-      layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28) ),
-      layers.MaxPooling2D((2, 2)),
-      layers.Conv2D(64, (3, 3), activation='relu'),
-      layers.MaxPooling2D((2, 2)),
-      layers.Conv2D(64, (3, 3), activation='relu'),
-      layers.Flatten(),
-      keras.layers.Dense(128, activation='relu'),
-      keras.layers.Dense(10, activation='softmax')
-  ])
+  #model = tf.keras.Sequential([
+  #    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28) ),
+  #    layers.MaxPooling2D((2, 2)),
+  #    layers.Conv2D(64, (3, 3), activation='relu'),
+  #    layers.MaxPooling2D((2, 2)),
+  #    layers.Conv2D(64, (3, 3), activation='relu'),
+  #    layers.Flatten(),
+  #    keras.layers.Dense(128, activation='relu'),
+  #    keras.layers.Dense(10, activation='softmax')
+  #])
 
-               
+    model = keras.Sequential()
+    model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28) )
+    model.add(layers.MaxPooling2D((2, 2))
+    model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+    model.add(layers.MaxPooling2D((2, 2)))
+    model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+    model.add(layers.Flatten())
+    model.add(keras.layers.Dense(128, activation='relu'))
+    mode.add(keras.layers.Dense(10, activation='softmax'))
+           
  #model = tf.keras.Sequential([
  #    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(168,168, 3)),
  #    layers.MaxPooling2D((2, 2)),
