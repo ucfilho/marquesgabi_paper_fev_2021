@@ -98,11 +98,34 @@ def AnnGrain(df,df_class):
   test_labels=yw_test
 
   model = keras.Sequential([
-      keras.layers.Flatten(input_shape=(28, 28)),
+      layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28) ),
+      layers.MaxPooling2D((2, 2)),
+      layers.Conv2D(64, (3, 3), activation='relu'),
+      layers.MaxPooling2D((2, 2)),
+      layers.Conv2D(64, (3, 3), activation='relu'),
+      layers.Flatten(),
       keras.layers.Dense(128, activation='relu'),
-      keras.layers.Dense(10)
+      keras.layers.Dense(10, activation='softmax')
   ])
 
+               
+ #model = tf.keras.Sequential([
+ #    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(168,168, 3)),
+ #    layers.MaxPooling2D((2, 2)),
+ #    layers.Conv2D(64, (3, 3), activation='relu'),
+ #    layers.MaxPooling2D((2, 2)),
+ #    layers.Conv2D(64, (3, 3), activation='relu'),
+ #    layers.Flatten(),
+ #    layers.Dense(250, activation='relu'),
+ #    layers.Dense(num_classes, activation='softmax')
+ #])
+  
+  
+  
+  
+  
+  
+  
   model.compile(optimizer='adam',
                 loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
                 metrics=['accuracy'])
