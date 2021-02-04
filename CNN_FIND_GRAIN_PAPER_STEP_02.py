@@ -96,6 +96,9 @@ def AnnGrain(df,df_class):
   train_labels=yw_train # resposta esperada para o treino
   test_images=W_test
   test_labels=yw_test
+  
+  train_images = tf.expand_dims(train_images, axis=-1)
+  test_images= tf.expand_dims(test_images, axis=-1)
 
   #model = tf.keras.Sequential([
   #    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28) ),
