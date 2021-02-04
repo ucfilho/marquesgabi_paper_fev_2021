@@ -20,6 +20,10 @@ from skimage import transform
 # TensorFlow and tf.keras
 import tensorflow as tf
 from tensorflow import keras
+from keras.utils import to_categorical
+
+
+
 
 
 
@@ -99,6 +103,8 @@ def AnnGrain(df,df_class):
   
   train_images = tf.expand_dims(train_images, axis=-1)
   test_images= tf.expand_dims(test_images, axis=-1)
+  train_labels = to_categorical(train_labels)
+  test_labels = to_categorical(test_labels)
 
   #model = tf.keras.Sequential([
   #    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28) ),
