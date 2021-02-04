@@ -101,8 +101,10 @@ def AnnGrain(df,df_class):
   test_images=W_test
   test_labels=yw_test
   
-  train_images = tf.expand_dims(train_images, axis=-1)
-  test_images= tf.expand_dims(test_images, axis=-1)
+  #train_images = tf.expand_dims(train_images, axis=-1)
+  train_images = train_images.reshape(-1, 28, 28, 1)
+  #test_images= tf.expand_dims(test_images, axis=-1)
+  test_images = test_images.reshape(-1, 28, 28, 1)
   train_labels = to_categorical(train_labels)
   test_labels = to_categorical(test_labels)
 
