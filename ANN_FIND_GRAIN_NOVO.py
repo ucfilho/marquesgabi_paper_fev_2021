@@ -95,7 +95,7 @@ def AnnGrain(df,df_class):
   model = keras.Sequential([
       keras.layers.Flatten(input_shape=(28, 28)),
       keras.layers.Dense(128, activation='relu'),
-      keras.layers.Dense(1)
+      keras.layers.Dense(10)
   ])
 
   model.compile(optimizer='adam',
