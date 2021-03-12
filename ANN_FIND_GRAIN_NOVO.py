@@ -100,7 +100,7 @@ def AnnGrain(df,df_class):
   ])
 
   model.compile(optimizer='adam',
-                loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+                loss='binary_crossentropy',
                 metrics=['accuracy'])
 
   # GRAIN use crop photos other cases segmented
