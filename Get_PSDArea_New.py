@@ -35,13 +35,13 @@ def PSDArea(df_size):
     '''
     for i in range(28):
       for j in range(28):
-        if img[i,j] < mean_value*1.05:
+        if img[i,j] < mean_value*1.0:
           img_new[i,j] = 255
         else:
           img_new[i,j] = 0
           
         raio = ((i-14.0)**2+(j-14.0)**2)**0.5
-        if (raio < 14.0*0.7):
+        if (raio < 14.0*0.8):
           img_new[i,j] = 255
         else:
           img_new[i,j] = 0
