@@ -39,13 +39,13 @@ def PSDArea(df_size):
           img_new[i,j] = 255
         else:
           img_new[i,j] = 0
-          
+        '''  
         raio = ((i-14.0)**2+(j-14.0)**2)**0.5
         if (raio > 14.0*0.9):
           img_new[i,j] = 255
         else:
           img_new[i,j] = 0
-          
+        '''  
     
     #for qual_img in range(Nx):
     Area = np.sum(img_new) / (255.0 * 28 * 28)* L*L
