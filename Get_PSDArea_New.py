@@ -25,7 +25,14 @@ def PSDArea(df_size):
     img28=cv2.resize(img,(Size,Size), interpolation = cv2.INTER_AREA)
     Foto=np.array(img28).reshape(28,28)
     
-
+    '''
+    for i in range(28):
+      for j in range(28):
+        if img[i,j] < mean_value*1.05:
+          img_new[i,j] = 255
+        else:
+          img_new[i,j] = 0
+    '''
     for i in range(28):
       for j in range(28):
         if img[i,j] < mean_value*1.05:
@@ -33,6 +40,13 @@ def PSDArea(df_size):
         else:
           img_new[i,j] = 0
           
+        raio = ((i-14.0)**2+(j-14.0)**2)**0.5
+        if (raio < 14.0*0.8):
+          img_new[i,j] = 255
+        else:
+          img_new[i,j] = 0
+          
+    
     #for qual_img in range(Nx):
     Area = np.sum(img_new) / (255.0 * 28 * 28)* L*L
     Diam = 2.0 * (Area/np.pi)**0.5
