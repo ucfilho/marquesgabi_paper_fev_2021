@@ -15,8 +15,9 @@ import matplotlib.pyplot as plt
 from skimage import transform
 
 # TensorFlow and tf.keras
-import tensorflow as tf
-from tensorflow import keras
+#import tensorflow as tf
+#from tensorflow import keras
+from sklearn.neural_network import MLPClassifier
 
 # 03_ANN_NEW_DATA... only the grains in 882 are used for training 
 #                    the ANN and segmented images are used to 
@@ -91,7 +92,7 @@ def AnnGrain(df,df_class):
   train_labels=yw_train # resposta esperada para o treino
   test_images=W_test
   test_labels=yw_test
-
+  '''
   model = keras.Sequential([
       keras.layers.Flatten(input_shape=(28, 28)),
       keras.layers.Dense(300, activation='relu'),
@@ -104,12 +105,16 @@ def AnnGrain(df,df_class):
                 metrics=['accuracy'])
 
   # GRAIN use crop photos other cases segmented
-  model.fit(train_images, train_labels, epochs=200)
-
+  model.fit(train_images, train_labels, epochs=200)  
+  
   #ANN das imagens
   x=np.array(W_test)
   logits = model(x, training=False)
   prediction = tf.argmax(logits, axis=1, output_type=tf.int32)
+  '''
+  model = MLPClassifier(hidden_layer_sizes=(100,100), activation='relu', *, solver='adam',random_state=1, max_iter=300).fit(X_train, y_train)
+  
+  prediction = model.predict(test_images)
   
   y_valor=np.copy(yw_test)
   data = {'y_Actual': y_valor,
