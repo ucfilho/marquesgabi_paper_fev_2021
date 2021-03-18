@@ -130,12 +130,12 @@ def AnnGrain(df,df_class):
 
   y_true = df['y_Actual']
   y_pred = df['y_Predicted']
-
+  '''
   METRICS=sklearn.metrics.classification_report(y_true, y_pred)
   
   x_seg=np.array(df_class)
   logits = model(x_seg, training=False)
   y_pred= tf.argmax(logits, axis=1, output_type=tf.int32)
   y_pred= np.array(pd.DataFrame(y_pred))
-
+  '''
   return y_pred,confusion_matrix,METRICS 
