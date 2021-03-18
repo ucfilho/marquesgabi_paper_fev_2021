@@ -130,6 +130,9 @@ def AnnGrain(df,df_class):
 
   y_true = df['y_Actual']
   y_pred = df['y_Predicted']
+  
+  METRICS=sklearn.metrics.classification_report(y_true, y_pred)
+  
   '''
   METRICS=sklearn.metrics.classification_report(y_true, y_pred)
   
