@@ -113,7 +113,7 @@ def AnnGrain(df,df_class):
   prediction = tf.argmax(logits, axis=1, output_type=tf.int32)
   '''
 
-  model = MLPClassifier(hidden_layer_sizes=(100,100), activation='relu', solver='adam',random_state=1, max_iter=300).fit(train_images,train_labels)
+  model = MLPClassifier(hidden_layer_sizes=(100,0), activation='relu', solver='adam',random_state=1, max_iter=300).fit(train_images,train_labels)
   
   prediction = model.predict(test_images)
   
