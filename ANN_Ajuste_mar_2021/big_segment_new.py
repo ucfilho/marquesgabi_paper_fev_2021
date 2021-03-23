@@ -34,7 +34,7 @@ def Segmenta(img):
     #FotoRotina=img.copy()
     #print('------START--------')
     #print(img)
-    Num=200
+    Num=2000
 
     #First top
 
