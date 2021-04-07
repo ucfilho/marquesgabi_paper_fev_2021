@@ -106,7 +106,7 @@ def knnGrain(df,df_class):
   
 
 
-  prediction = .predict(test_images)
+  prediction = knn.predict(test_images)
   
   y_valor=np.copy(yw_test)
   data = {'y_Actual': y_valor,
