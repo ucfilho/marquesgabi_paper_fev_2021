@@ -33,7 +33,7 @@ def PSDArea(df_size):
         else:
           img_new[i,j] = 0
     '''
-    ref_val = 28*1/20 # valor 28*1/10 updated to 28*1/20
+    ref_val = 28*1/15 # valor 28*1/10 updated to 28*1/15
     ref_val_up = 28 -ref_val
     for i in range(28):
       for j in range(28):
